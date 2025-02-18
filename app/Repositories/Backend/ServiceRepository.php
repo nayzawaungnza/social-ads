@@ -18,7 +18,9 @@ class ServiceRepository extends BaseRepository
 
     public function getServices($request, $status = null)
     {
-
+        return $this->model->where('status', $status)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
     }
     public function getService($id)
     {

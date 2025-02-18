@@ -7,4 +7,5 @@
         <script src="{{ asset('assets/frontend/js/magnific-popup.min.js') }}"></script>
         <script src="{{ asset('assets/frontend/js/jquery.mixitup.min.js') }}"></script>
         <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/frontend/js/swiper-bundle.min.js') }}"></script>
         <script src="{{ asset('assets/frontend/js/main.js') }}"></script>

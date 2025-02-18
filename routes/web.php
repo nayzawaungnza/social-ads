@@ -31,14 +31,13 @@ Route::get('/contact-us',[App\Http\Controllers\Frontend\MainHomeController::clas
 
 Route::get('/portfolio',[App\Http\Controllers\Frontend\MainHomeController::class, 'portfolio'])->name('website.portfolio');
 
+Route::get('/services/{slug}',[App\Http\Controllers\Frontend\MainHomeController::class, 'serviceDetail'])->name('website.service-detail');
+
 Route::group(['middleware' => ['auth', 'check_user_active']], function () {
       
         });
     
 
-Route::middleware(['auth:admin,teacher,student', 'check_user_active'])->group(function () {
-   
-});
 
 
 

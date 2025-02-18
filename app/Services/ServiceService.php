@@ -23,7 +23,7 @@ class ServiceService implements ServiceServiceInterface
 
     public function getServices($request, $status = null)
     {
-
+        return $this->serviceRepository->getServices($request, $status);
     }
     public function getService($id)
     {

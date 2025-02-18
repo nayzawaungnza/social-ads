@@ -9,4 +9,5 @@
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/flaticon.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/header.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/frontend/css/swiper-bundle.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}">

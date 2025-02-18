@@ -23,7 +23,7 @@ class SliderService implements SliderServiceInterface
 
     public function getSliders($request, $status = null)
     {
-
+            return $this->sliderRepository->getSliders($request, $status);
     }
     public function getSlider($id)
     {

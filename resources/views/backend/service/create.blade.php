@@ -47,27 +47,65 @@
 </script>
 <script type="module">
 import {
-				ClassicEditor,
-				Essentials,
-				Paragraph,
-				Bold,
-				Italic,
-				Font
-			} from 'ckeditor5';
+    ClassicEditor,
+    Essentials,
+    Paragraph,
+    Bold,
+    Italic,
+    Font,
+    List,
+    Alignment,
+    Underline,
+    Strikethrough,
+    Link,
+    BlockQuote
+} from 'ckeditor5';
+
+ClassicEditor
+    .create(document.querySelector('#editor'), {
+        plugins: [
+            Essentials, Paragraph, Bold, Italic, Font, List, Alignment,
+            Underline, Strikethrough, Link, BlockQuote
+        ],
+        toolbar: [
+            'undo', 'redo', '|', 
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+            'alignment', '|', 
+            'numberedList', 'bulletedList', '|',
+            'link', 'blockQuote'
+        ]
+    })
+    .then(editor => {
+        editor.ui.view.editable.element.style.height = '300px';
+        window.editor = editor;
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
     ClassicEditor
-        .create(document.querySelector('#editor'), {
-          plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
-            toolbar: ['undo', 'redo', '|', 'bold', 'italic', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'],
-        })
-        
-        .then(editor => {
-          editor.ui.view.editable.element.style.height = '300px';
-          
-            window.editor = editor;
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    .create(document.querySelector('#excerpt'), {
+        plugins: [
+            Essentials, Paragraph, Bold, Italic, Font, List, Alignment,
+            Underline, Strikethrough, Link, BlockQuote
+        ],
+        toolbar: [
+            'undo', 'redo', '|', 
+            'bold', 'italic', 'underline', 'strikethrough', '|',
+            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+            'alignment', '|', 
+            'numberedList', 'bulletedList', '|',
+            'link', 'blockQuote'
+        ]
+    })
+    .then(editor => {
+        editor.ui.view.editable.element.style.height = '300px';
+        window.editor = editor;
+    })
+    .catch(error => {
+        console.error(error);
+    });
 </script>
 
     

@@ -51,7 +51,7 @@
                         <div class="others-option d-flex align-items-center">
                             
                             <div class="option-item">
-                                <a href="contact.html" class="social-ads-btn"><span>Contact Us</span> <i class='bx bx-chevron-right'></i></a>
+                                <a href="contact.html" class="social-ads-btn"><span>Start A Project?</span> <i class='bx bx-chevron-right'></i></a>
                             </div>
                         </div>
                     </div>

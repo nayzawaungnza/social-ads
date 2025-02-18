@@ -1196,7 +1196,8 @@ Features Area Social Ads CSS
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #070105;
+  background-color: #000;
+  
 }
 
 /* .features-section-social-ads .feature-box{
@@ -1250,7 +1251,8 @@ Features Area Social Ads CSS
   100% {
     inset-inline-start: 0;
   }
-}
+ }
+ /*
 .features-section-social-ads .feature-box:before {
   position: absolute;
     content: '';
@@ -1280,9 +1282,9 @@ Features Area Social Ads CSS
     -webkit-animation: leftToRight 5s linear infinite alternate;
     animation: leftToRight 5s linear infinite alternate;
     border-radius: 20px;
-}
+} */
 
-.features-section-social-ads .feature-box {
+/* .features-section-social-ads .feature-box {
   background: rgb(255 255 255 / 40%);
   backdrop-filter: blur(3.5px);
   padding: 30px 30px 30px;
@@ -1293,6 +1295,23 @@ Features Area Social Ads CSS
   z-index: 0;
   overflow: hidden;
   border-radius: 10px;
+} */
+
+.features-section-social-ads .feature-box {
+  /* background: rgb(255 255 255 / 40%); */
+  /* backdrop-filter: blur(3.5px); */
+  padding: 30px 30px 30px;
+  position: relative;
+  /* border: 1px solid #101c37; */
+  margin-bottom: 30px;
+  /* transition: var(--transition); */
+  /* z-index: 0; */
+  /* overflow: hidden; */
+  /* border-radius: 10px; */
+  background-image: url('../images/Glass_Tab_Service.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 100%;
 }
 
 @-webkit-keyframes rotate {
@@ -1318,16 +1337,24 @@ Features Area Social Ads CSS
 
 .features-section-social-ads .feature-box .icon {
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   color: #edeeff;
 }
 
 .features-section-social-ads .feature-box h4 {
+  background: #D89BEF;
+background: linear-gradient(to right, #D89BEF 0%, #D89BEF 30%, #F1D4FF 50%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  color: transparent;
   color: #edeeff;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-weight:500;
+  font-size:20px;
 }
-
+.icon-image {
+  max-width: 75px;
+}
 .features-section-social-ads .feature-box p {
   color: #edeeff;
   font-size: 17px;
@@ -1335,18 +1362,18 @@ Features Area Social Ads CSS
 
 .features-section-social-ads .feature-box ul li {
   color: var(--paragraphColorSecond);
-  margin-bottom: 10px;
-  padding-left: 35px;
+  margin-bottom: 1px;
+  padding-left: 28px;
   position: relative;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .features-section-social-ads .feature-box ul {
   list-style: none;
   padding: 0;
-  margin-top: 30px;
-  margin-bottom: 35px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 .features-section-social-ads .feature-box ul li:before {
   content: "\ea0f";
@@ -1354,7 +1381,7 @@ Features Area Social Ads CSS
   position: absolute;
   top: 2px;
   left: 0;
-  font-size: 24px;
+  font-size: 20px;
   color:  #edeeff;
   font-family: 'boxicons'!important;
   font-weight: normal;
@@ -6331,24 +6358,36 @@ Go Top CSS
 }
 
 .navbar-area .navbar .navbar-brand img.logo {
-  width: 70px;
+  max-width: 200px;
 }
 
 
 
 .navbar-area .navbar .others-option .option-item .social-ads-btn {
-  /* background: linear-gradient(94deg, #43A5FE 21.18%, #0064C1 104.4%); */
-  background: rgb(255,255,255);
-background: linear-gradient(270deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 50%, rgba(230,0,255,0.6) 100%);
-
-/* background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,0.9774229760263481) 0%, rgba(230,0,255,0.15389356426164214) 100%); */
+  /* background: rgb(255,255,255);
+background: linear-gradient(270deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 50%, rgba(230,0,255,0.6) 100%); */
 
 /* background: rgb(255,255,255);
 background: linear-gradient(267deg, rgba(255,255,255,0.9774229760263481) 47%, rgba(230,0,255,0.15389356426164214) 67%); */
--webkit-box-shadow: 0px 0px 25px -8px rgba(230,0,255,1);
+/* -webkit-box-shadow: 0px 0px 25px -8px rgba(230,0,255,1);
 -moz-box-shadow: 0px 0px 25px -8px rgba(230,0,255,1);
-box-shadow: 0px 0px 25px -8px rgba(230,0,255,1);
+box-shadow: 0px 0px 25px -8px rgba(230,0,255,1); */
+background-image: linear-gradient(
+  130deg,
+  hsl(235deg 56% 83%) 0%,
+  hsl(243deg 54% 84%) 8%,
+  hsl(251deg 54% 84%) 17%,
+  hsl(259deg 55% 84%) 25%,
+  hsl(267deg 55% 85%) 33%,
+  hsl(274deg 55% 85%) 42%,
+  hsl(282deg 56% 85%) 50%,
+  hsl(282deg 52% 86%) 58%,
+  hsl(282deg 48% 86%) 67%,
+  hsl(283deg 43% 87%) 75%,
+  hsl(283deg 39% 87%) 83%,
+  hsl(284deg 33% 88%) 92%,
+  hsl(285deg 28% 89%) 100%
+);
 }
 
 .social-ads-btn {
@@ -6386,86 +6425,134 @@ img.responsive-logo {
 }
 
 
-.scan {
-  position:relative;
+ /* Custom styles for the navigation arrows */
+ .swiper-button-next,
+ .swiper-button-prev {
+     background-color: rgba(0, 0, 0, 0);
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: background-color 0.3s ease;
+ }
+
+ .swiper-button-next:hover,
+ .swiper-button-prev:hover {
+     background-color: rgba(0, 0, 0, 0);
+ }
+
+ /* Hide the default arrow icons */
+ .swiper-button-next::after,
+ .swiper-button-prev::after {
+     display: none;
+ }
+
+ /* Add custom arrow images */
+ .swiper-button-next {
+     right: 10px;
+     background-image: url('../images/Arrow_Right.png'); /* Replace with your right arrow image */
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: 35px;
+ }
+
+ .swiper-button-prev {
+     left: 10px;
+     background-image: url('../images/Arrow_Left.png'); /* Replace with your left arrow image */
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: 35px;
+ }
+ .digital-identify-section {
+  padding: 80px 0 50px;
+  background-color: #000;
+}
+
+/* Container styling */
+.identity-container {
+  position: relative;
+  width: 100%;
+  /* height: 100vh;  */
+  background-size: cover;
+  background-position: center;
+  background-repeat:no-repeat;
   display:flex;
-  flex-direction:column;
-  align-items:center;
+  align-items: center;
+  justify-content: center;
+  padding:62px 10px;
 }
 
-.scan .fingerprint {
-  position:relative;
-  width:300px;
-  height:230px;
-  background:url(https://www.pngall.com/wp-content/uploads/2016/06/Fingerprint-Free-Download-PNG.png);
-  background-repeat: no-repeat;
-  background-size:300px;
+/* Top-left image styling */
+.top-left-image {
+  position: absolute;
+  top: -35px;
+  left: 18px;
+  width: 100px;
+  height: auto;
 }
 
-.scan .fingerprint::before {
-  content: '';
-  position:absolute;
-  top:0;
-  left:0;
-  width:300px;
-  height:230px;
-  background:url(https://www.pngall.com/wp-content/uploads/2016/06/Fingerprint-Free-Download-PNG.png);
-  filter: invert(100%) sepia(60%) saturate(3000%) hue-rotate(130deg) brightness(95%) contrast(80%);
-  background-size:300px;
-  animation:animate 4s ease-in-out infinite;    
+/* Bottom-right image styling */
+.bottom-right-image {
+  position: absolute;
+  bottom: -20px;
+  right: -26px;
+  width: 100px;
+  height: auto;
+}
+/* Content styling */
+.content {
+  max-width: 600px; /* Adjust as needed */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
+  border-radius: 10px;
+}
+
+.content p {
+  font-size: 16px; /* Adjust font size as needed */
+  line-height: 1.6;
+  margin-bottom: 0px;
+  color:#f1f1f1;
+  padding-left:20px;
+}
+
+/* Business types list styling */
+.business-types {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.business-types li {
+  font-size: 16px; /* Adjust font size as needed */
+  margin-bottom: 0px;
+  padding-left: 20px;
+  position: relative;
+  color:#f1f1f1;
 }
 
 
-@keyframes animate {
-  0%, 100% {
-      height:0%;
-  }
-  
-  50% {
-      height:100%;
-  }
+.social-labs-title {
+  background: #D89BEF;
+background: linear-gradient(to right, #D89BEF 0%, #D89BEF 30%, #F1D4FF 50%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 2em; /* Adjust font size as needed */
+  text-align: center;
+}
+.fingerprint-image {
+  max-width: 180px;
 }
 
-.scan .fingerprint::after {
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:8px;
-  background: var(--scannerColor);
-  border-radius:8px;
-  filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
-  animation:moveLine 4s ease-in-out infinite;
+.service-section
+{
+  padding:50px 0;
+  background: #000;
 }
-
-@keyframes moveLine {
-  0%, 100% {
-      top:0%;
-  }
-  
-  50% {
-      top:100%;
-  }
+.text-align-left
+{
+  text-align:left;
 }
-/* 
-.scan h3 {
-  text-transform:uppercase;
-  font-size:2em;
-  letter-spacing:2px;
-  margin-top:20px;
-  color: var(--scannerColor);   
-  filter:drop-shadow(0 0 20px var(--scannerColor)) drop-shadow(0 0 60px var(--scannerColor));
-  animation:animate_text 0.5s steps(1) infinite;
-} */
-
-@keyframes animate_text {
-  0%, 100% {
-      opacity:0;
-  }
-  
-  50% {
-      opacity:1;
-  }
-}
-

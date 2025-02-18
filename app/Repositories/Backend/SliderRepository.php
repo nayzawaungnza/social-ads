@@ -18,7 +18,9 @@ class SliderRepository extends BaseRepository
 
     public function getSliders($request, $status = null)
     {
-
+        return $this->model->where('status', $status)
+                          ->orderBy('created_at', 'desc')
+                          ->get();
     }
     public function getSlider($id)
     {

@@ -3,13 +3,13 @@
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-primary rounded-pill ms-auto">3</div>
+                
               </a>
               <ul class="menu-sub">
                 
                 <li class="menu-item active">
-                  <a href="app-academy-dashboard.html" class="menu-link">
-                    <div data-i18n="Academy">Academy</div>
+                  <a href="{{ url('/') }}" target="_blank" class="menu-link">
+                    <div data-i18n="Visit Site">Visit Site</div>
                   </a>
                 </li>
               </ul>
