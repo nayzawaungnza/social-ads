@@ -93,7 +93,7 @@ import {
                   <div class="row g-3">
                     <div class="col-md-6">
                       <label class="form-label" for="name">Name <span class="text-danger">*</span></label>
-                      <input type="text" id="name" name="name" value="{{ old('name', $partner->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Enter Slider Name" />
+                      <input type="text" id="name" name="name" value="{{ old('name', $partner->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Enter Partner Name" />
                       @error('name')
                         <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
                       @enderror

@@ -94,6 +94,7 @@ class PostController extends Controller
     }
     public function store(CreatePostRequest $request)
     {
+       // dd($request->all());
         $this->postService->create($request->all());
         return redirect('admin/posts')->with('status', 'Post has been added successfully.');
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Services\ClientService;
+use App\Services\PostService;
 use App\Services\ServiceService;
 use Illuminate\Http\Request;
 use App\Enums\PostStatusEnum;
@@ -13,10 +15,14 @@ class MainHomeController extends Controller
 
     protected $sliderService;
     protected $serviceService;
-    public function __construct(SliderService $sliderService, ServiceService $serviceService)
+    protected $clientService;
+    protected $postService;
+    public function __construct(SliderService $sliderService, ServiceService $serviceService, ClientService $clientService, PostService $postService)
     {
         $this->sliderService = $sliderService;
         $this->serviceService = $serviceService;
+        $this->clientService = $clientService;
+        $this->postService = $postService;
     }
 
     public function index(Request $request)
@@ -24,7 +30,9 @@ class MainHomeController extends Controller
         //dd($courses);
         $sliders = $this->sliderService->getSliders($request, PostStatusEnum::Publish);
         $services = $this->serviceService->getServices($request, PostStatusEnum::Publish);
-        return view('frontend.home', compact('sliders','services'));
+        $clients = $this->clientService->getClients();
+        $posts = $this->postService->getPosts();
+        return view('frontend.home', compact('sliders','services','clients','posts'));
     }
 
     public function dashboard()

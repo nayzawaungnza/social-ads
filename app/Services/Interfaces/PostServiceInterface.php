@@ -6,7 +6,7 @@ use App\Models\Post;
 
 interface PostServiceInterface
 {
-    public function getPosts($request, $status = null);
+    public function getPosts( $status = 1);
     public function getPost($id);
     public function create(array $request);
     public function update(Post $post, array $request);

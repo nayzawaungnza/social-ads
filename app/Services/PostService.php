@@ -21,9 +21,9 @@ class PostService implements PostServiceInterface
         $this->postRepository = $postRepository;
     }
 
-    public function getPosts($request, $status = null)
+    public function getPosts($status = 1)
     {
-
+        return $this->postRepository->getPosts( $status);
     }
     public function getPost($id)
     {

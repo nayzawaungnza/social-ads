@@ -1,40 +1,62 @@
 <!-- Start Footer Area -->
         <div class="footer-area">
             <div class="footer-top-info">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row g-0 align-items-center">
                         <div class="col-lg-6">
-                            <div class="footer-image">
-                                <a class="popup-youtube" href="https://youtu.be/VDVHbd3nNrM?si=atnpL-PwDDJ8DX6h">
-                                    <img src="assets/img/all-img/image-1.jpg" alt="image">
-                                </a>
-                                <span id="tooltip">play</span>
-                            </div>
+                            <p class="mb-0 text-white">Drop us on Email</p>
+                            @if($settings->contact_email)
+                            <a class="footer-email text-white" href="mailto:{{$settings->contact_email}}">{{$settings->contact_email}}</a>
+                            @else
+                                <a class="footer-email text-white" href="mailto:hello@website.com">hello@website.com</a>
+                            @endif
+                            
                         </div>
                         <div class="col-lg-6">
-                            <div class="content ft-shape">
-                                <div class="logo">
-                                    <h2>MeetAI</h2>
-                                </div>
-                                <p>Aithm is poised to revolutionize the way we live and work, offering unprecedented possibilities for innovation and efficiency.</p>
+                            <div class="content">
+                                @if($settings->facebook_url || $settings->twitter_url || $settings->instagram_url || $settings->linkedin_url || $settings->youtube_url || $settings->whatsapp_url || $settings->tiktok_url || $settings->viber)
                                 <ul>
-                                    <li><a href="https://www.facebook.com/" target="_blank"><i class="bx bxl-facebook"></i></a></li>
-                                    <li><a href="https://www.instagram.com/" target="_blank"><i class="bx bxl-instagram"></i></a></li>
-                                    <li><a href="https://twitter.com/" target="_blank"><i class='bx bxl-twitter'></i></a></li>
-                                    <li><a href="https://www.linkedin.com" target="_blank"><i class='bx bxl-linkedin-square'></i></a></li>
+                                    {{-- @if($settings->viber)
+                                        <li><a href="{{$settings->viber}}" target="_blank"><i class='bx bxl-viber'></i></a></li>
+                                    @endif --}}
+                                    @if($settings->facebook_url)
+                                        <li><a href="{{$settings->facebook_url}}" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                                    @endif
+                                    @if($settings->twitter_url)
+                                        <li><a href="{{$settings->twitter_url}}" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                                    @endif
+                                    @if($settings->instagram_url)
+                                        <li><a href="{{$settings->instagram_url}}" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                                    @endif
+                                    @if($settings->linkedin_url)
+                                        <li><a href="{{$settings->linkedin_url}}" target="_blank"><i class='bx bxl-linkedin-square'></i></a></li>
+                                    @endif
+                                    @if($settings->youtube_url)
+                                        <li><a href="{{$settings->youtube_url}}" target="_blank"><i class='bx bxl-youtube'></i></a></li>
+                                    @endif
+                                    @if($settings->whatsapp_url)
+                                        <li><a href="{{$settings->whatsapp_url}}" target="_blank"><i class='bx bxl-whatsapp'></i></a></li>
+                                    @endif
+                                    {{-- @if($settings->tiktok_url)
+                                        <li><a href="{{$settings->tiktok_url}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg></a></li>
+                                    @endif --}}
+
+                                    
                                 </ul>
+                                @endif
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-widget-info ptb-100">
+            <div class="footer-widget-info">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12 col-md-12">
+                        <div class="col-lg-5 col-sm-12 col-md-12">
                             <div class="subscribe-area">
-                                <h2>Subscribe To Ai!</h2>
-                                <p>Artificial Intelligence is a transformation field of computer science that empowers machines to perform</p>
+                                <h4>Subscribe To Social Ads!</h4>
+                                
                                 <div class="subscribe-wrapper"> 
                                     <div class="subscribe-box"> 
                                         <form data-toggle="validator">
@@ -51,16 +73,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-sm-6 col-md-4">
+                            <div class="footer-widget">
+                                <h4>Our Services</h4>
+                                <ul>
+                                    @foreach($services as $service)
+                                        <li><a href="{{('services/'.$service->slug.'')}}">{{$service->name}}</a></li>
+                                    @endforeach
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </div>
                         <div class="col-lg-2 col-sm-6 col-md-4">
                             <div class="footer-widget">
-                                <h4>Quick Links</h4>
+                                <h4>Social Ads</h4>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                    <li><a href="team.html">Developers</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#">Blogs</a></li>
+                                    <li><a href="#">Term of services</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Cookie Policy</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -68,19 +100,11 @@
                             <div class="footer-widget">
                                 <h4>Resource</h4>
                                 <ul>
-                                    <li><a href="blog.html">Blogs</a></li>
-                                    <li><a href="term-condition.html">Term of services</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                                    <li><a href="#">Blogs</a></li>
+                                    <li><a href="#">Term of services</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Cookie Policy</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-md-4">
-                            <div class="footer-widget">
-                                <h4>Office</h4>
-                                <span>175 5th Ave, New York, NY 10010, USA</span>
-                                <a class="ft-mail" href="mailto:info@aithm.com">info@aithm.com</a>
-                                <a class="ft-number" href="tel:+18408412569">+1 840 841 25 69</a>
                             </div>
                         </div>
                     </div>
@@ -89,20 +113,17 @@
             <div class="copy-right-area">
                 <div class="container">
                     <div class="row"> 
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="cpr-left">
-                                <p>Copyright© 2024 Aithm. All rights reserved.</p>
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="text-center">
+                                @if($settings->copyright_text)
+                                    {!!$settings->copyright_text!!}
+                                @else
+                                    <p>Copyright © {{ date('Y') }} {{$settings->site_name}}. All rights reserved.</p>
+                                @endif
+                                
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="cpr-right">
-                                <ul>
-                                    <li><a href="term-condition.html">Term of services</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

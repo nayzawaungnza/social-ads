@@ -1,7 +1,7 @@
 @extends('auth/layouts/master')
 
 @section('content')
- <h4 class="mb-1 pt-2">Welcome to Venom Hub Admin Panel! 👋</h4>
+ <h4 class="mb-1 pt-2">Welcome to Admin Panel! 👋</h4>
               <p class="mb-4">Please sign-in to your account and start the erp</p>
 
                @isset($url)

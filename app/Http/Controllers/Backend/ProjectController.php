@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Enums\StageStatusEnum;
-use App\Services\UserService;
+use App\Services\ClientService;
 use DataTables;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -17,11 +17,11 @@ use App\Http\Requests\Project\UpdateProjectRequest;
 class ProjectController extends Controller
 {
     protected $projectService;
-    protected $userService;
-    public function __construct(ProjectService $projectService, UserService $userService)
+    protected $clientService;
+    public function __construct(ProjectService $projectService, ClientService $clientService)
     {
         $this->projectService = $projectService;
-        $this->userService = $userService;
+        $this->clientService = $clientService;
 
         $this->middleware('permission:project-list|project-create|project-edit|project-delete', ['only' => ['index', 'show']]);
         $this->middleware('permission:project-create', ['only' => ['create', 'store']]);
@@ -98,7 +98,7 @@ class ProjectController extends Controller
     public function create()
     {
         $url = route('projects.store');
-        $clients = $this->userService->getClients();
+        $clients = $this->clientService->getClients();
         return view('backend.project.create', compact('url','clients'));
     }
     public function store(CreateProjectRequest $request)
@@ -116,7 +116,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $url = route('projects.update', $project->id);
-        $clients = $this->userService->getClients();
+        $clients = $this->clientService->getClients();
         return view('backend.project.edit', compact('project', 'url', 'clients'));
     }
 

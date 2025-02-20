@@ -68,33 +68,7 @@ Route::middleware(['auth', 'check_user_active'])->prefix('admin')->group(functio
     Route::resource('projects', App\Http\Controllers\Backend\ProjectController::class);
     Route::get('projects/{project}/change_status',[App\Http\Controllers\Backend\ProjectController::class, 'changeStatus'])->name('projects.changeStatus');
 
-    // Subject Route
-    //Route::resource('subjects', App\Http\Controllers\Backend\SubjectController::class);
-
-    // Lesson Route
-    //Route::resource('lessons', App\Http\Controllers\Backend\LessonController::class);
-    // Enrollment Route
-    //Route::resource('enrollments', App\Http\Controllers\Backend\EnrollmentController::class);
-    // Route::get('enrollments/{enrollment}/change_status',[App\Http\Controllers\Backend\EnrollmentController::class, 'changeStatus'])->name('enrollments.changeStatus');
-
-    // Route::post('enroll', [App\Http\Controllers\Backend\EnrollmentController::class, 'enroll']);
-    // Route::get('course/{courseId}/enrollments', [App\Http\Controllers\Backend\EnrollmentController::class, 'getCourseEnrollments']);
-    // Route::get('student/{studentId}/enrollments', [App\Http\Controllers\Backend\EnrollmentController::class, 'getStudentEnrollments']);
-
-    // Route::resource('payments', App\Http\Controllers\Backend\PaymentMethodController::class);
-    // Route::post('payments/change_status', [App\Http\Controllers\Backend\PaymentMethodController::class, 'changeStatus'])->name('payment_methods.change-status');
-
-    // Route::resource('assignments', App\Http\Controllers\Backend\AssignmentController::class);
-    // Route::get('assignments/{assignment}/change_status', [App\Http\Controllers\Backend\AssignmentController::class, 'changeStatus'])->name('assignments.change-status');
-
-    // //Exam
-    // Route::resource('exams', App\Http\Controllers\Backend\ExamController::class);
-    // Route::get('exams/{exam}/change_status', [App\Http\Controllers\Backend\ExamController::class, 'changeStatus'])->name('exams.change-status');
-
-    // //Question
-    // Route::resource('questions', App\Http\Controllers\Backend\QuestionController::class);
-    // Route::get('questions/{question}/change_status', [App\Http\Controllers\Backend\QuestionController::class, 'changeStatus'])->name('questions.change-status');
-
+    
     Route::resource('subscribers', App\Http\Controllers\Backend\SubscriberController::class);
     Route::get('subscribers/{subscriber}/change_status',[App\Http\Controllers\Backend\SubscriberController::class, 'changeStatus'])->name('subscribers.changeStatus');
     
@@ -103,6 +77,9 @@ Route::middleware(['auth', 'check_user_active'])->prefix('admin')->group(functio
     
     Route::resource('partners', App\Http\Controllers\Backend\PartnerController::class);
     Route::get('partners/{partner}/change_status',[App\Http\Controllers\Backend\PartnerController::class, 'changeStatus'])->name('partners.changeStatus');
+    
+    Route::resource('clients', App\Http\Controllers\Backend\ClientController::class);
+    Route::get('clients/{client}/change_status',[App\Http\Controllers\Backend\ClientController::class, 'changeStatus'])->name('clients.changeStatus');
     
 
     // Config Settings Route

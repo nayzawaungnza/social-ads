@@ -209,8 +209,8 @@ import {
                         type="text"
                         id="facebook_url"
                         name="facebook_url"
-                        value="{{ old('facebook_url') }}"
-                        class="form-control  @error('facebook_url', $setting->facebook_url) is-invalid @enderror"
+                        value="{{ old('facebook_url',$setting->facebook_url) }}"
+                        class="form-control  @error('facebook_url' ) is-invalid @enderror"
                         placeholder="https://www.facebook.com/" />
                         @error('facebook_url')
                           <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
@@ -237,8 +237,8 @@ import {
                         type="text"
                         id="twitter_url"
                         name="twitter_url"
-                        value="{{ old('twitter_url') }}"
-                        class="form-control  @error('twitter_url', $setting->twitter_url) is-invalid @enderror"
+                        value="{{ old('twitter_url',$setting->twitter_url) }}"
+                        class="form-control  @error('twitter_url') is-invalid @enderror"
                         placeholder="https://www.twitter.com/" />
                         @error('twitter_url')
                           <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
@@ -272,6 +272,47 @@ import {
                           <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="col-md-6">
+                      <label class="form-label" for="tiktok_url">Tiktok</label>
+                      <input 
+                        type="text" 
+                        id="tiktok_url" 
+                        value="{{ old('tiktok_url', $setting->tiktok_url) }}" 
+                        name="tiktok_url" 
+                        class="form-control @error('tiktok_url') is-invalid @enderror" 
+                        placeholder="https://www.tiktok.com/"  />
+                      @error('tiktok_url')
+                          <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="whatsapp_url">Whatsapp</label>
+                      <input 
+                        type="text" 
+                        id="whatsapp_url" 
+                        value="{{ old('whatsapp_url', $setting->whatsapp_url) }}" 
+                        name="whatsapp_url" 
+                        class="form-control @error('whatsapp_url') is-invalid @enderror" 
+                        placeholder="https://www.whatsapp.com/"  />
+                      @error('whatsapp_url')
+                          <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="viber">Viber</label>
+                      <input 
+                        type="text" 
+                        id="viber" 
+                        value="{{ old('viber', $setting->viber) }}" 
+                        name="viber" 
+                        class="form-control @error('viber') is-invalid @enderror" 
+                        placeholder="viber number"  />
+                      @error('viber')
+                          <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                   </div>
 
                   <hr class="my-4 mx-n4" />
@@ -314,8 +355,8 @@ import {
                         type="text"
                         id="latitude"
                         name="latitude"
-                        value="{{ old('latitude') }}"
-                        class="form-control  @error('latitude', $setting->latitude) is-invalid @enderror"
+                        value="{{ old('latitude',$setting->latitude) }}"
+                        class="form-control  @error('latitude') is-invalid @enderror"
                         placeholder="123.456" />
                         @error('latitude')
                           <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
@@ -342,8 +383,8 @@ import {
                         type="text"
                         id="google_maps_api_key"
                         name="google_maps_api_key"
-                        value="{{ old('google_maps_api_key') }}"
-                        class="form-control  @error('google_maps_api_key', $setting->google_maps_api_key) is-invalid @enderror"
+                        value="{{ old('google_maps_api_key',$setting->google_maps_api_key) }}"
+                        class="form-control  @error('google_maps_api_key') is-invalid @enderror"
                         placeholder="xxxx-xxxx-xxxx-xxxxx-xxxxx" />
                         @error('google_maps_api_key')
                           <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>

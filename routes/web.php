@@ -33,6 +33,10 @@ Route::get('/portfolio',[App\Http\Controllers\Frontend\MainHomeController::class
 
 Route::get('/services/{slug}',[App\Http\Controllers\Frontend\MainHomeController::class, 'serviceDetail'])->name('website.service-detail');
 
+Route::get('/blogs/{slug}',[App\Http\Controllers\Frontend\PostController::class, 'blogDetail'])->name('website.post-detail');
+
+Route::get('/blogs/categories/{slug}',[App\Http\Controllers\Frontend\PostCategoryController::class, 'categoryDetail'])->name('website.category-detail');
+
 Route::group(['middleware' => ['auth', 'check_user_active']], function () {
       
         });

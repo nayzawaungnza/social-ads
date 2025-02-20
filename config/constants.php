@@ -14,6 +14,7 @@ return [
         'PROJECT' => 'Project',
         'PARTNER' => 'Partner',
         'SLIDER' => 'Slider',
+        'CLIENT' => 'Client',
     ],
 
     /**

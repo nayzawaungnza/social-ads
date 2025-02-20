@@ -23,7 +23,8 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'post_category' => 'required|exists:post_categories,id',
+            'post_category' => 'required|array',
+            'post_category.*' => 'exists:post_categories,id',
         ];
     }
 
@@ -32,8 +33,9 @@ class UpdatePostRequest extends FormRequest
         return [
             'name.required' => 'Name is required',
             'name.max' => 'Name is too long',
-            'post_category.required' => 'Post category is required',
-            'post_category.exists' => 'Post category does not exist',
+            'post_category.required'   => 'Post category is required',
+            'post_category.array'      => 'Post category must be an array',
+            'post_category.*.exists'   => 'One or more selected post categories do not exist',
         ];
     }
 }

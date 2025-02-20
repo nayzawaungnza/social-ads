@@ -61,7 +61,17 @@
         <div class="mb-0 text-wrap fw-semibold">Category</div>
       </div>
       <div class="mb-3 col-md-9 border-bottom pb-3">
-        <div class="mb-0 text-muted">{{ $post->category->name }}</div>
+        <div class="mb-0 text-muted">
+            @if($post->postCategories->isNotEmpty())
+                <ul>
+                    @foreach($post->postCategories as $category)
+                        <li>{{ $category->name }}</li>
+                    @endforeach
+                </ul>
+            @else
+                <p>No categories available.</p>
+            @endif
+        </div>
       </div>
       
       <div class="mb-3 col-md-3 border-bottom pb-3">
@@ -98,7 +108,7 @@
         <div class="mb-0 text-wrap fw-semibold">Updated By</div>
       </div>
       <div class="mb-3 col-md-9 border-bottom pb-3">
-        <div class="mb-0 text-muted">{{ $post->updatedBy->name }}</div>
+        <div class="mb-0 text-muted">{{ $post->updatedBy?->name }}</div>
       </div>
     </div>
     <div class="row">

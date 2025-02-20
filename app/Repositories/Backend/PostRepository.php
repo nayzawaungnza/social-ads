@@ -16,9 +16,12 @@ class PostRepository extends BaseRepository
         return Post::class;
     }
 
-    public function getPosts($request, $status = null)
+    public function getPosts($status = 1)
     {
-
+        return $this->model->where('status', $status)
+                        ->with('postCategories')
+                          ->orderBy('created_at', 'desc')
+                          ->get();
     }
     public function getPost($id)
     {
@@ -28,13 +31,17 @@ class PostRepository extends BaseRepository
     {
         $path_name = "posts";
         $post = Post::create([
-        'post_category_id'=> isset($data['post_category']) ? $data['post_category'] : null,
+        //'post_category_id'=> isset($data['post_category']) ? $data['post_category'] : null,
         'name' => $data['name'],
         'description' => $data['description'],
         'excerpt' => $data['excerpt'],
         'status' => isset($data['status']) ? $data['status'] : 1,
         'created_by' => auth()->user()->id,
         ]);
+
+        if (!empty($data['post_category'])) {
+            $post->postCategories()->sync($data['post_category']);
+        }
 
         if(isset($data['default_image']))
         {
@@ -77,7 +84,7 @@ class PostRepository extends BaseRepository
 
         
        $post->update([
-                'post_category_id'=> isset($data['post_category']) ? $data['post_category'] : $post->post_category_id,
+                //'post_category_id'=> isset($data['post_category']) ? $data['post_category'] : $post->post_category_id,
                 'name' => $data['name'] ?? $post->name,
                 'description' => $data['description'] ?? $post->description,
                 'excerpt' => $data['excerpt'] ?? $post->excerpt,
@@ -85,6 +92,9 @@ class PostRepository extends BaseRepository
                 'updated_by' => auth()->user()->id
         ]);
 
+        if (!empty($data['post_category'])) {
+            $post->postCategories()->sync($data['post_category']);
+        }
 
         if(isset($data['default_image']) && $data['default_image'])
         {       logger($post->default_image);
@@ -133,6 +143,7 @@ class PostRepository extends BaseRepository
     }
     public function destroy(Post $post)
     {
+        $post->postCategories()->detach();
         $deleted = $this->deleteById($post->id);
         if ($deleted) {
             $post->save();
@@ -172,7 +183,7 @@ class PostRepository extends BaseRepository
     public function getPostEloquent()
     {
         return Post::query()
-            ->with('category')
+            ->with('postCategories')
             ->with('updatedBy')
             ->with('createdBy')
             ->with('default_image');

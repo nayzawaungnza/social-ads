@@ -198,6 +198,25 @@
               </ul>
             </li> 
 
+            <li class="menu-item {{ $activePage == 'clients' || $activePage == 'clients.create' || $activePage == 'clients.edit' || $activePage == 'clients.show' ? ' active open' : '' }}">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-users-plus"></i>
+                <div data-i18n="Clients">Clients</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item {{ $activePage == 'clients' ? ' active' : '' }}">
+                  <a href="{{ route('clients.index') }}" class="menu-link">
+                    <div data-i18n="Clients List">Clients List</div>
+                  </a>
+                </li>
+                <li class="menu-item {{ $activePage == 'clients.create' ? ' active' : '' }}">
+                  <a href="{{ route('clients.create') }}" class="menu-link">
+                    <div data-i18n="Add Client">Add Client</div>
+                  </a>
+                </li>
+              </ul>
+            </li> 
+
             <li class="menu-item {{ $activePage == 'subscribers' || $activePage == 'subscribers.create' || $activePage == 'subscribers.edit' || $activePage == 'subscribers.show' ? ' active open' : '' }}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user-heart"></i>

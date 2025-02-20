@@ -23,17 +23,17 @@
                         <ul class="navbar-nav">
                             
                             <li class="nav-item ">
-                                <a href="about.html" class="nav-link active">
+                                <a href="{{route('website.home')}}" class="nav-link active">
                                     Home
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="about.html" class="nav-link">
+                                <a href="{{route('website.about-us')}}" class="nav-link">
                                     About Us
                                 </a>
                             </li>
                              <li class="nav-item">
-                                <a href="about.html" class="nav-link">
+                                <a href="{{route('website.services')}}" class="nav-link">
                                     Services
                                 </a>
                             </li>
@@ -51,7 +51,7 @@
                         <div class="others-option d-flex align-items-center">
                             
                             <div class="option-item">
-                                <a href="contact.html" class="social-ads-btn"><span>Start A Project?</span> <i class='bx bx-chevron-right'></i></a>
+                                <a href="{{route('website.contact-us')}}" class="social-ads-btn"><span>Start A Project?</span> <i class='bx bx-chevron-right'></i></a>
                             </div>
                         </div>
                     </div>
@@ -71,42 +71,56 @@
             <div class="offcanvas-body">
                 <div class="accordion" id="navbarAccordion">
                     <div class="accordion-item">
-                        <a class="accordion-link without-icon active" href="about.html">
+                        <a class="accordion-link without-icon active" href="{{route('website.home')}}">
                            Home
                         </a>
                     </div>
                     <div class="accordion-item">
-                        <a class="accordion-link without-icon" href="about.html">
+                        <a class="accordion-link without-icon" href="{{route('website.about-us')}}">
                             About Us
                         </a>
                     </div>
                     
                     <div class="accordion-item">
-                        <a class="accordion-link without-icon" href="about.html">
+                        <a class="accordion-link without-icon" href="{{route('website.services')}}">
                             Services
                         </a>
                     </div>
                     <div class="accordion-item">
-                        <a class="accordion-link without-icon" href="about.html">
+                        <a class="accordion-link without-icon" href="#">
                             Projects
                         </a>
                     </div>         
                     <div class="accordion-item">
-                        <a class="accordion-link without-icon" href="contact.html">
+                        <a class="accordion-link without-icon" href="{{route('website.contact-us')}}">
                             Contact
                         </a>
                     </div>
                 </div>
-                <div class="offcanvas-contact-info">
+                @if($settings->facebook_url || $settings->twitter_url || $settings->instagram_url || $settings->linkedin_url || $settings->youtube_url)
+                    <div class="offcanvas-contact-info">
                     <h4>Follow On</h4>
                     <ul class="social-profile list-style">
-                        <li><a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook'></i></a></li>
-                        <li><a href="https://www.instagram.com" target="_blank"><i class='bx bxl-instagram'></i></a></li>
-                        <li><a href="https://www.linkedin.com" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
-                        <li><a href="https://dribbble.com" target="_blank"><i class='bx bxl-dribbble'></i></a></li>
-                        <li><a href="https://www.pinterest.com" target="_blank"><i class='bx bxl-pinterest'></i></a></li>
+                        @if($settings->facebook_url)
+                            <li><a href="{{$settings->facebook_url}}" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                        @endif
+                        @if($settings->twitter_url)
+                            <li><a href="{{$settings->twitter_url}}" target="_blank"><i class='bx bxl-twitter'></i></a></li>
+                        @endif
+                        @if($settings->instagram_url)
+                            <li><a href="{{$settings->instagram_url}}" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                        @endif
+                        @if($settings->linkedin_url)
+                            <li><a href="{{$settings->linkedin_url}}" target="_blank"><i class='bx bxl-linkedin'></i></a></li>
+                        @endif
+                        @if($settings->youtube_url)
+                            <li><a href="{{$settings->youtube_url}}" target="_blank"><i class='bx bxl-youtube'></i></a></li>
+                        @endif
+                        
                     </ul>
                 </div>
+                @endif
+                
             </div>
         </div>
         <!-- End Responsive Navbar Area -->

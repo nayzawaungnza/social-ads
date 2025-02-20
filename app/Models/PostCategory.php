@@ -49,7 +49,12 @@ class PostCategory extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class, 'post_category_id');
+        return $this->belongsToMany(
+            Post::class,
+            'post_category_post', // pivot table name
+            'post_category_id',   // FK on pivot table for post_categories
+            'post_id'             // FK on pivot table for posts
+        );
     }
 
     public function createdBy()

@@ -15,11 +15,11 @@ use App\Models\Post;
 // use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Client;
 use App\Models\Slider;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\Service;
-use App\Models\Portfolio;
 use App\Services\PostService;
 use App\Services\UserService;
 use Illuminate\Support\Collection;
@@ -59,13 +59,12 @@ class AppServiceProvider extends ServiceProvider
             'Image' => Image::class,
             'Post' => Post::class,
             'Page' => Page::class,
-            'Portfolio' => Portfolio::class,
             'Service' => Service::class,
             'User' => User::class,
             'Project' => Project::class,
             'Partner' => Partner::class,
             'Slider' => Slider::class,
-            //'Lesson' => Lesson::class,
+            'Client' => Client::class,
             //'Assignment' => Assignment::class,
             //'Transaction' => Transaction::class,
             //'Enrollment' => Enrollment::class,

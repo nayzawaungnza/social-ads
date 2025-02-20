@@ -19508,8 +19508,11 @@ html:not(.layout-footer-fixed) .content-wrapper {
 .app-brand-logo img,
 .app-brand-logo svg {
   display: block;
-}
 
+}
+.app-brand-logo img{
+  width:100%;
+}
 .app-brand-text {
   flex-shrink: 0;
   opacity: 1;

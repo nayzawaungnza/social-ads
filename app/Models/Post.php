@@ -38,9 +38,14 @@ class Post extends Model
             ->usingSeparator('-'); // Use underscore as separator
     }
 
-    public function category()
+    public function postCategories()
     {
-        return $this->belongsTo(PostCategory::class, 'post_category_id');
+        return $this->belongsToMany(
+            PostCategory::class,
+            'post_category_post', // pivot table name
+            'post_id',            // FK on pivot table for posts
+            'post_category_id'    // FK on pivot table for post_categories
+        );
     }
 
     public function createdBy()

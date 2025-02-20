@@ -20,8 +20,9 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['layouts.frontend.menu','layouts.frontend.master'], function($view){
+        View::composer(['layouts.frontend.menu','layouts.frontend.master','layouts.frontend.footer'], function($view){
             $settings = DB::table('config_settings')->first();
+            $services = DB::table('services')->where('status',1)->get();
             $view->with('settings', $settings);
         });
         

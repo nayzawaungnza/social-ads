@@ -15,7 +15,7 @@ $(function () {
   dt_project_ajax_table =  $('.project-datatables-ajax'),
   dt_slider_ajax_table =  $('.slider-datatables-ajax'),
   dt_partner_ajax_table =  $('.partner-datatables-ajax'),
-  // dt_lesson_ajax_table =  $('.lesson-datatables-ajax'),
+  dt_client_ajax_table =  $('.client-datatables-ajax'),
   // dt_enrollments_ajax_table =  $('.enrollments-datatables-ajax'),
   // dt_payments_ajax_table =  $('.payments-datatables-ajax'),
   // dt_transactions_ajax_table =  $('.transactions-data-table'),
@@ -469,6 +469,52 @@ $(function () {
             ],
               });
             }
+
+            if(dt_client_ajax_table.length)
+              {
+                console.log($("#table_url").attr("data-table-url"));
+                var dt_ajax = dt_client_ajax_table.dataTable({
+                  processing: true,
+              serverSide: true,
+              aaSorting: [],
+              ajax: {
+                  url: $("#table_url").attr("data-table-url"),
+                  error: function (xhr, error, thrown) {
+                    console.error("Error occurred: ", error);
+                    console.log("Thrown error: ", thrown);
+                    console.log("XHR: ", xhr);
+                    
+                    if (xhr.status === 419) {
+                        window.location.reload();
+                        return;
+                    }
+                    
+                    if (xhr.status === 500) {
+                        alert('Internal Server Error (500). Please check the server logs.');
+                    }
+                },
+                dataSrc: function (json) {
+                    console.log("Server Response: ", json);
+                    return json.data; // Ensure 'data' contains the list of students
+                }
+              },
+              columns: [
+                  { data: "name", name: "name", orderable: true, searchable: true },
+                  { data: "slug", name: "slug" },
+                  { data: "default_image", name: "default_image" },
+                  { data: "status", name: "status" },
+                  { data: "created_at", name: "created_at" },
+                  { data: "created_by", name: "created_by", orderable: true, searchable: true },
+                  {
+                      data: "action",
+                      name: "action",
+                      orderable: false,
+                      searchable: false,
+                      class: "td-actions",
+                  },
+              ],
+                });
+              }
 
         if(dt_service_ajax_table.length)
           {

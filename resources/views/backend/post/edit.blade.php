@@ -144,40 +144,68 @@ ClassicEditor
                   <hr class="my-4 mx-n4" />
                   <div class="row g-3">
                       <div class="col-md-12">
-                        <label class="form-label" for="name">Category <span class="text-danger">*</span> </label>
-                          <select id="post_category" name="post_category" class="form-select @error('post_category') is-invalid @enderror">
-                                  <option value="" disabled selected>Please Select Category</option>
+    <label class="form-label">Category <span class="text-danger">*</span></label>
 
-                                  @if (!empty($categories))
-                                      @foreach ($categories as $category)
-                                          <option value="{{ $category->id }}" {{ old('post_category', $post->post_category_id) == $category->id ? 'selected' : '' }}>
-                                              {{ $category->name }}
-                                          </option>
+    @if(!empty($categories))
+        @foreach($categories as $category)
+            <div class="form-check">
+                <input 
+                    class="form-check-input @error('post_category') is-invalid @enderror" 
+                    type="checkbox" 
+                    id="category_{{ $category->id }}" 
+                    name="post_category[]" 
+                    value="{{ $category->id }}"
+                    {{ (is_array(old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : [])) && in_array($category->id, old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : []))) ? 'checked' : '' }}
+                >
+                <label class="form-check-label" for="category_{{ $category->id }}">
+                    {{ $category->name }}
+                </label>
+            </div>
 
-                                          @if ($category->children->isNotEmpty())
-                                              @foreach ($category->children as $child)
-                                                  <option value="{{ $child->id }}" {{ old('post_category', $post->post_category_id) == $child->id ? 'selected' : '' }}>
-                                                      &nbsp;&nbsp;— {{ $child->name }}
-                                                  </option>
+            @if($category->children->isNotEmpty())
+                @foreach($category->children as $child)
+                    <div class="form-check ms-3">
+                        <input 
+                            class="form-check-input @error('post_category') is-invalid @enderror" 
+                            type="checkbox" 
+                            id="category_{{ $child->id }}" 
+                            name="post_category[]" 
+                            value="{{ $child->id }}"
+                            {{ (is_array(old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : [])) && in_array($child->id, old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : []))) ? 'checked' : '' }}
+                        >
+                        <label class="form-check-label" for="category_{{ $child->id }}">
+                            &nbsp;&nbsp;— {{ $child->name }}
+                        </label>
+                    </div>
+                    @if($child->children->isNotEmpty())
+                        @foreach($child->children as $subChild)
+                            <div class="form-check ms-5">
+                                <input 
+                                    class="form-check-input @error('post_category') is-invalid @enderror" 
+                                    type="checkbox" 
+                                    id="category_{{ $subChild->id }}" 
+                                    name="post_category[]" 
+                                    value="{{ $subChild->id }}"
+                                    {{ (is_array(old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : [])) && in_array($subChild->id, old('post_category', isset($post) ? $post->postCategories->pluck('id')->toArray() : []))) ? 'checked' : '' }}
+                                >
+                                <label class="form-check-label" for="category_{{ $subChild->id }}">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;— {{ $subChild->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+    @else
+        <p>No Category Available</p>
+    @endif
 
-                                                  @if ($child->children->isNotEmpty())
-                                                      @foreach ($child->children as $subChild)
-                                                          <option value="{{ $subChild->id }}" {{ old('post_category', $post->post_category_id) == $subChild->id ? 'selected' : '' }}>
-                                                              &nbsp;&nbsp;&nbsp;&nbsp;— {{ $subChild->name }}
-                                                          </option>
-                                                      @endforeach
-                                                  @endif
-                                              @endforeach
-                                          @endif
-                                      @endforeach
-                                  @else
-                                      <option value="">No Category Available</option>
-                                  @endif
-                              </select>
-                              @error('post_category')
-                                  <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
-                              @enderror
-                      </div>
+    @error('post_category')
+        <span class="error invalid-feedback" style="margin-left:8px;display:block;">{{ $message }}</span>
+    @enderror
+</div>
+
                   </div>
                   <hr class="my-4 mx-n4" />
                   <div class="row g-3">
